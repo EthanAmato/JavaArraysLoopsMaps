@@ -1,38 +1,40 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class LoopExercise {
 
 	
-	public static int findSum(int[] intArray) {
+	public static int findSum(List<Integer> userNumbers) {
 		int sum = 0;
-		for(int i = 0; i < intArray.length; i++) {
-			sum+=intArray[i];
+		for(int i = 0; i < userNumbers.size(); i++) {
+			sum+=userNumbers.get(i);
 		}
 		return sum;
 	}
 	
-	public static int max(int[] intArray) {
-		int max = intArray[0];
-		for(int i = 0; i < intArray.length; i++) {
-			if (intArray[i] > max) {max = intArray[i];}
+	public static int max(List<Integer> userNumbers) {
+		int max = userNumbers.get(0);
+		for(int i = 0; i < userNumbers.size(); i++) {
+			if (userNumbers.get(i) > max) {max = userNumbers.get(i);}
 		}
 		return max;
 	}
 	
-	public static int min(int[] intArray) {
-		int min = intArray[0];
-		for(int i = 0; i < intArray.length; i++) {
-			if (intArray[i] < min) {min = intArray[i];}
+	public static int min(List<Integer> userNumbers) {
+		int min = userNumbers.get(0);
+		for(int i = 0; i < userNumbers.size(); i++) {
+			if (userNumbers.get(i) < min) {min = userNumbers.get(i);}
 		}
 		return min;
 	}
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		int[] userNumbers = new int[5];
+		List<Integer> userNumbers = new ArrayList<>();
 		
-		for(int i = 0; i < userNumbers.length; i++) {
+		for(int i = 0; i < 5; i++) {
 			System.out.println("Please enter a number:");
-			userNumbers[i] = Integer.parseInt(input.nextLine());
+			userNumbers.add(i,Integer.parseInt(input.nextLine()));
 		}
 		
 		System.out.println(findSum(userNumbers));
